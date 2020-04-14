@@ -4,6 +4,13 @@ class Fibonacci {
 
     // TODO: Complete the following function
     fun productFibonacciSequenceFor(n: Int): IntArray {
-        throw NotImplementedError("Not implemented")
+        var last = 0
+        var current = 1
+        while (last * current < n) {
+            val tmp = current
+            current += last
+            last = tmp
+        }
+        return intArrayOf(last, current, if (last * current == n) 1 else 0)
     }
 }
